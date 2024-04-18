@@ -160,7 +160,3 @@ To use the modified CMS Filter attribute in your Webflow project:
 4. Save and publish your Webflow project.
 
 The CMS Filter should now work with the "AND" functionality, showing only the items that match all the selected filter criteria simultaneously.
-
-## License
-
-This modified version of the CMS Filter attribute is released under the [MIT License](https://opensource.org/licenses/MIT). Please refer to the original [Finsweet Attributes repository](https://github.com/finsweet/attributes) for more information on the license and terms of use.
