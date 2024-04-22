@@ -908,15 +908,17 @@
                       let [x, z] = [C, S].map(B => { var N; return (N = Tt(B)) == null ? void 0 : N.getTime() });
                       b = x === z;
                     } else {
-                      b = S.toLowerCase().includes(C.toLowerCase());
+                      l.some(({ type: x }) => !["checkbox", "radio", "select-one"].includes(x)) || e.length > 1
+                        ? (b = S.toLowerCase().includes(C.toLowerCase()))
+                        : (b = C.toLowerCase() === S.toLowerCase());
                     }
                     return b && s && (f == null || f.set(S, { highlightCSSClass: i, filterValue: C })), b;
                   });
                 });
-                return n === "all" ? A.length === a.length : A.length > 0;
-              });
-              return n === "all" ? c.length === e.length : c.length > 0;
-            },
+                return n === "all" ? A.length === a.length : A.length > 0
+            });
+            return n === "all" ? c.length === e.length : c.length > 0
+        },
         re = (t, e, r, n) => {
             let [o, s, i] = [t, e, r].map(l => n === "date" ? Tt(l) : Zt(l));
             return o ? !e && !Y(i) ? o <= i : !r && !Y(s) ? o >= s : Y(i) || Y(s) ? !1 : o >= s && o <= i : !1
