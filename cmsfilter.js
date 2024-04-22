@@ -883,13 +883,6 @@
     };
     var oe = (t, e, r, n) => (n && Yt(t), r ? !0 : e.every(o => Ur(t, o))),
         Ur = (t, { filterKeys: e, values: r, match: n, mode: o, highlight: s, highlightCSSClass: i, elements: l }) => {
-              console.log("filterKeys:", e);
-              console.log("values:", r);
-              console.log("match:", n);
-              console.log("mode:", o);
-              console.log("highlight:", s);
-              console.log("highlightCSSClass:", i);
-              console.log("elements:", l);
               let a = [...r];
               if (!a.length) return !0;
               let m = e.includes("*");
