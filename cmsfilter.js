@@ -884,40 +884,40 @@
     var oe = (t, e, r, n) => (n && Yt(t), r ? !0 : e.every(o => Ur(t, o))),
         //Console.log(Look Here)
         Ur = (t, { filterKeys: e, values: r, match: n, mode: o, highlight: s, highlightCSSClass: i, elements: l }) => {
-              let a = [...r];
-              if (!a.length) return !0;
-              let m = e.includes("*");
-              m && (e = Object.keys(t.props));
-              let c = e.every(u => {
-                let p = t.props[u];
-                if (!p) return !1;
-                let { values: E, highlightData: f, type: T, range: d } = p, g = [...E];
-                if (!g.length) return !1;
-                if (o === "range") {
-                  let [C] = g, [v, S] = a, b = re(C, v, S, T);
-                  return b && s && (f == null || f.set(C, { highlightCSSClass: i })), b;
-                }
-                let A = a.every(C => {
-                  if (d === "from" || d === "to") {
-                    let [S, b] = g, x = re(C, S, b, T);
-                    return x && s && (f == null || f.set(S, { highlightCSSClass: i }), f == null || f.set(b, { highlightCSSClass: i })), x;
+          let a = [...r];
+          if (!a.length) return !0;
+          let m = e.includes("*");
+          m && (e = Object.keys(t.props));
+          let c = e.every(u => {
+            let p = t.props[u];
+            if (!p) return !1;
+            let { values: E, highlightData: f, type: T, range: d } = p, g = [...E];
+            if (!g.length) return !1;
+            if (o === "range") {
+              let [C] = g, [v, S] = a, b = re(C, v, S, T);
+              return b && s && (f == null || f.set(C, { highlightCSSClass: i })), b;
+            }
+            let A = a.every(C => {
+              if (d === "from" || d === "to") {
+                let [S, b] = g, x = re(C, S, b, T);
+                return x && s && (f == null || f.set(S, { highlightCSSClass: i }), f == null || f.set(b, { highlightCSSClass: i })), x;
+              }
+              return g.some(S => {
+                  let b;
+                  if (T === "date" && !m) {
+                    let [x, z] = [C, S].map(B => { var N; return (N = Tt(B)) == null ? void 0 : N.getTime() });
+                    b = x === z;
+                  } else if (l.some(({ type: x }) => x === "text")) {
+                    b = S.toLowerCase().includes(C.toLowerCase());
+                  } else {
+                    b = C.toLowerCase() === S.toLowerCase();
                   }
-                  return g.some(S => {
-                    let b;
-                    if (T === "date" && !m) {
-                      let [x, z] = [C, S].map(B => { var N; return (N = Tt(B)) == null ? void 0 : N.getTime() });
-                      b = x === z;
-                    } else {
-                      l.some(({ type: x }) => !["checkbox", "radio", "select-one"].includes(x)) || e.length > 1
-                        ? (b = S.toLowerCase().includes(C.toLowerCase()))
-                        : (b = C.toLowerCase() === S.toLowerCase());
-                    }
-                    return b && s && (f == null || f.set(S, { highlightCSSClass: i, filterValue: C })), b;
-                  });
+                  return b && s && (f == null || f.set(S, { highlightCSSClass: i, filterValue: C })), b;
                 });
-                return n === "all" ? A.length === a.length : A.length > 0
             });
-            return n === "all" ? c.length === e.length : c.length > 0
+            return A;
+          });
+          return c;
         },
         re = (t, e, r, n) => {
             let [o, s, i] = [t, e, r].map(l => n === "date" ? Tt(l) : Zt(l));
