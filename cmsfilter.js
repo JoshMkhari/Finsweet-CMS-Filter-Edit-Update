@@ -913,9 +913,9 @@
                     return b && s && (f == null || f.set(S, { highlightCSSClass: i, filterValue: C })), b;
                   });
                 });
-                return A;
+                return n === "all" ? A.length === a.length : A.length > 0;
               });
-              return c;
+              return n === "all" ? c.length === e.length : c.length > 0;
             },
         re = (t, e, r, n) => {
             let [o, s, i] = [t, e, r].map(l => n === "date" ? Tt(l) : Zt(l));
