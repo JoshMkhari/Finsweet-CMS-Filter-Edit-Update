@@ -882,8 +882,8 @@
         }]
     };
     var oe = (t, e, r, n) => (n && Yt(t), r ? !0 : e.every(o => Ur(t, o))),
+        //Console.log(Look Here)
         Ur = (t, { filterKeys: e, values: r, match: n, mode: o, highlight: s, highlightCSSClass: i, elements: l }) => {
-              //Console.log(look here)
               let a = [...r];
               if (!a.length) return !0;
               let m = e.includes("*");
@@ -908,8 +908,7 @@
                       let [x, z] = [C, S].map(B => { var N; return (N = Tt(B)) == null ? void 0 : N.getTime() });
                       b = x === z;
                     } else {
-                      let x = l.some(({ type: z }) => !["checkbox", "radio", "select-one"].includes(z)) || e.length > 1;
-                      b = x ? S.toLowerCase().includes(C.toLowerCase()) : S.toLowerCase() === C.toLowerCase();
+                      b = S.toLowerCase().includes(C.toLowerCase());
                     }
                     return b && s && (f == null || f.set(S, { highlightCSSClass: i, filterValue: C })), b;
                   });
